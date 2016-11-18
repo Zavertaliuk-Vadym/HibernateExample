@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mkyong.stock.ListName;
 import com.mkyong.stock.Task;
+import com.mkyong.stock.TaskList;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -17,10 +18,13 @@ public class App {
 		session.beginTransaction();
 
 
-        Criteria criteria =  session.createCriteria(ListName.class);
-        List<ListName> tasks = (List<ListName>) criteria.list();
-        for (ListName listName:tasks) {
-            System.out.println(listName.getId()+"!"+listName.getName());
+        Criteria criteria =  session.createCriteria(TaskList.class);
+        List<LTaskList> tasks = (List<TaskList>) criteria.list();
+        for (TaskList listName:tasks) {
+            System.out.println(listName.getId()+"!"+listName.getName()+listName.getTaskList());
+//			for (Task task : listName.getTaskList()){
+//				System.out.println(task.getDetails());
+//			}
         }
 //
 //		Stock stock = new Stock();

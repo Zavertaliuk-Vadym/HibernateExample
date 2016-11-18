@@ -8,24 +8,33 @@ import java.util.List;
  * Created by employee on 11/15/16.
  */
 @Entity
-@Table(name = "table")
+@Table(name = "task")
 public class Task {
     @Id
+    @Column(name = "id")
     private int taskId;
+
     @Column(name = "title")
     private String title;
+
     @Column(name = "details")
     private String details;
+
     @Column(name = "view")
-    private boolean view = false;
+    private boolean view ;
+
     @Column(name = "localTime")
     private String localTime;
+
     @Column(name = "currentDay")
     private String currentDay;
+
     @Column(name = "list_id")
     private int list_id ;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ListName listName;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "list_id")
+//    TaskList taskList;
 
     public Task() {
     }
@@ -93,13 +102,5 @@ public class Task {
 
     public void setList_id(int list_id) {
         this.list_id = list_id;
-    }
-
-    public ListName getListName() {
-        return listName;
-    }
-
-    public void setListName(ListName listName) {
-        this.listName = listName;
     }
 }
